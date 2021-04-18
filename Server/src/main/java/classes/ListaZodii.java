@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ListaZodii {
     private ArrayList<Zodie> zodii=new ArrayList<>();
-    public ListaZodii() throws FileNotFoundException {
+    public ListaZodii(File fisier) throws FileNotFoundException {
         Scanner sc=new Scanner(new File("src/main/resources/zodii.txt"));
     }
 

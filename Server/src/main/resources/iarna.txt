@@ -1,0 +1,4 @@
+1|12|21|12|Sagetator
+21|12|19|1|Capricorn
+20|1|18|2|Varsator
+19|2|29|2|Pesti

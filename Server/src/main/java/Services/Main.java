@@ -15,7 +15,7 @@ public class Main {
            // server.start();
 
             //System.out.println("Server started at " + server.getPort());
-            ListaZodii zod=new ListaZodii();
+            //ListaZodii zod=new ListaZodii();
             //server.awaitTermination();
         } catch (IOException e) {
             System.out.println("Error: " + e);

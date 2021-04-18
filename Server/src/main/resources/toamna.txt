@@ -1,0 +1,4 @@
+1|9|22|9|Fecioara
+23|9|22|10|Balanta
+23|10|21|11|Scorpion
+22|11|30|11|Sagetator
