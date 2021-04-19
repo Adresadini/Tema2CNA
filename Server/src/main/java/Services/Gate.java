@@ -65,12 +65,10 @@ public class Gate extends gateGrpc.gateImplBase{
 
                     @Override
                     public void onError(Throwable t) {
-
                     }
 
                     @Override
                     public void onCompleted() {
-
                     }
                 });
             }
