@@ -3,24 +3,25 @@ package Services;
 import classes.ListaZodii;
 import classes.Zodie;
 import io.grpc.stub.StreamObserver;
-import proto.ServiceIarna;
-import proto.iarnaGrpc;
+import proto.ServicePrimavara;
+import proto.ServiceVara;
+import proto.varaGrpc;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class Iarna extends iarnaGrpc.iarnaImplBase{
+public class Vara extends varaGrpc.varaImplBase{
     @Override
-    public void trimiteZodia(ServiceIarna.Data request, StreamObserver<ServiceIarna.Zodie> responseObserver) {
+    public void trimiteZodia(ServiceVara.Data request, StreamObserver<ServiceVara.Zodie> responseObserver)  {
         ListaZodii zod= null;
         try {
-            zod = new ListaZodii(new File("src/main/resources/iarna.txt"));
+            zod = new ListaZodii(new File("src/main/resources/vara.txt"));
         } catch (FileNotFoundException e) {
             responseObserver.onError(e);
         }
         ArrayList<Zodie> zodii= zod.getZodii();
-        ServiceIarna.Zodie.Builder response=ServiceIarna.Zodie.newBuilder();
+        ServiceVara.Zodie.Builder response=ServiceVara.Zodie.newBuilder();
         for(Zodie zodie :zodii)
         {
             if(zodie.getLunaStart()== request.getLuna() && request.getZi()>= zodie.getZiStart())
@@ -30,7 +31,5 @@ public class Iarna extends iarnaGrpc.iarnaImplBase{
         }
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
-
-
     }
 }

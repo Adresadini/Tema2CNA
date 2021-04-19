@@ -1,9 +1,5 @@
 package proto;
 
-import io.grpc.stub.StreamObserver;
-
-import java.io.FileNotFoundException;
-
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
@@ -93,7 +89,7 @@ public final class iarnaGrpc {
     /**
      */
     public void trimiteZodia(proto.ServiceIarna.Data request,
-        io.grpc.stub.StreamObserver<proto.ServiceIarna.Zodie> responseObserver) throws FileNotFoundException {
+        io.grpc.stub.StreamObserver<proto.ServiceIarna.Zodie> responseObserver) {
       asyncUnimplementedUnaryCall(getTrimiteZodiaMethod(), responseObserver);
     }
 
@@ -130,8 +126,8 @@ public final class iarnaGrpc {
 
     /**
      */
-    public void trimiteZodia(ServiceIarna.Data.Builder request,
-                             StreamObserver<ServiceIarna.Zodie> responseObserver) {
+    public void trimiteZodia(proto.ServiceIarna.Data request,
+        io.grpc.stub.StreamObserver<proto.ServiceIarna.Zodie> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getTrimiteZodiaMethod(), getCallOptions()), request, responseObserver);
     }

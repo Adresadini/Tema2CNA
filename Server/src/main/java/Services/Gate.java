@@ -2,12 +2,8 @@ package Services;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.ManagedChannelProvider;
 import io.grpc.stub.StreamObserver;
-import proto.ServiceIarna;
-import proto.gateGrpc;
-import proto.iarnaGrpc;
-import proto.primavaraGrpc;
+import proto.*;
 
 
 public class Gate extends gateGrpc.gateImplBase{
@@ -19,7 +15,7 @@ public class Gate extends gateGrpc.gateImplBase{
         if(request.getLuna()==12 || request.getLuna()==1 || request.getLuna()==2)
         {
             iarnaGrpc.iarnaStub stub=iarnaGrpc.newStub(channel);
-            stub.trimiteZodia(ServiceIarna.Data.newBuilder().setZi(request.getZi()).setLuna(request.getLuna()).setAn(request.getAn()), new StreamObserver<ServiceIarna.Zodie>() {
+            stub.trimiteZodia(ServiceIarna.Data.newBuilder().setZi(request.getZi()).setLuna(request.getLuna()).setAn(request.getAn()).build(), new StreamObserver<ServiceIarna.Zodie>() {
                 @Override
                 public void onNext(ServiceIarna.Zodie value) {
                     response.setZodie(value.getZodie());
@@ -39,10 +35,10 @@ public class Gate extends gateGrpc.gateImplBase{
         else
         if(request.getLuna()==3 || request.getLuna()==4 || request.getLuna()==5)
         {
-            primavaraGrpc.primavaraStubStub stub=primavaraGrpc.newStub(channel);
-            stub.trimiteZodia(ServicePrimavara.Data.newBuilder().setZi(request.getZi()).setLuna(request.getLuna()).setAn(request.getAn()), new StreamObserver<ServicePrimavara.Zodie>() {
+            primavaraGrpc.primavaraStub stub=primavaraGrpc.newStub(channel);
+            stub.trimiteZodia(ServicePrimavara.Data.newBuilder().setZi(request.getZi()).setLuna(request.getLuna()).setAn(request.getAn()).build(), new StreamObserver<ServicePrimavara.Zodie>() {
                 @Override
-                public void onNext(ServiceIarna.Zodie value) {
+                public void onNext(ServicePrimavara.Zodie value) {
                     response.setZodie(value.getZodie());
                 }
 
@@ -57,5 +53,49 @@ public class Gate extends gateGrpc.gateImplBase{
                 }
             });
         }
+        else
+            if(request.getLuna()==6 || request.getLuna()==7 || request.getLuna()==8)
+            {
+                varaGrpc.varaStub stub=varaGrpc.newStub(channel);
+                stub.trimiteZodia(ServiceVara.Data.newBuilder().setZi(request.getZi()).setLuna(request.getLuna()).setAn(request.getAn()).build(), new StreamObserver<ServiceVara.Zodie>() {
+                    @Override
+                    public void onNext(ServiceVara.Zodie value) {
+                        response.setZodie(value.getZodie());
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onCompleted() {
+
+                    }
+                });
+            }
+            else
+                if(request.getLuna()==9 || request.getLuna()==10 || request.getLuna()==11)
+                {
+                    toamnaGrpc.toamnaStub stub=toamnaGrpc.newStub(channel);
+                    stub.trimiteZodia(ServiceToamna.Data.newBuilder().setZi(request.getZi()).setLuna(request.getLuna()).setAn(request.getAn()).build(), new StreamObserver<ServiceToamna.Zodie>() {
+                        @Override
+                        public void onNext(ServiceToamna.Zodie value) {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable t) {
+
+                        }
+
+                        @Override
+                        public void onCompleted() {
+
+                        }
+                    });
+                }
+
+
     }
 }
