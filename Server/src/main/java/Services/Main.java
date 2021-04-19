@@ -4,6 +4,7 @@ import classes.ListaZodii;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main {
@@ -15,7 +16,7 @@ public class Main {
            // server.start();
 
             //System.out.println("Server started at " + server.getPort());
-            //ListaZodii zod=new ListaZodii();
+            ListaZodii zod=new ListaZodii(new File("src/main/resources/iarna.txt"));
             //server.awaitTermination();
         } catch (IOException e) {
             System.out.println("Error: " + e);
