@@ -14,6 +14,7 @@ public class Iarna extends iarnaGrpc.iarnaImplBase{
     @Override
     public void trimiteZodia(ServiceIarna.Data request, StreamObserver<ServiceIarna.Zodie> responseObserver) {
         ListaZodii zod= null;
+
         try {
             zod = new ListaZodii(new File("src/main/resources/iarna.txt"));
         } catch (FileNotFoundException e) {
