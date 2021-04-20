@@ -92,7 +92,6 @@ public class Gate extends gateGrpc.gateImplBase{
                         }
                     });
                 }
-        System.out.println(response.getZodie());
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
     }

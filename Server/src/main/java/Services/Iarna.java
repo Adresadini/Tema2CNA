@@ -24,9 +24,15 @@ public class Iarna extends iarnaGrpc.iarnaImplBase{
         for(Zodie zodie :zodii)
         {
             if(zodie.getLunaStart()== request.getLuna() && request.getZi()>= zodie.getZiStart())
+            {
                 response.setZodie(zodie.getNume());
+                break;
+            }
             if(zodie.getLunaFinal()== request.getLuna() && request.getZi()<= zodie.getZiFinal())
+            {
                 response.setZodie(zodie.getNume());
+                break;
+            }
         }
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
