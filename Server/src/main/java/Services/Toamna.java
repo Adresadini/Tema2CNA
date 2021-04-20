@@ -27,7 +27,7 @@ public class Toamna extends toamnaGrpc.toamnaImplBase{
         {
             if(zodie.getLunaStart()== request.getLuna() && request.getZi()>= zodie.getZiStart())
                 response.setZodie(zodie.getNume());
-            if(zodie.getLunaFinal()== request.getLuna() && request.getZi()<= zodie.getZiStart())
+            if(zodie.getLunaFinal()== request.getLuna() && request.getZi()<= zodie.getZiFinal())
                 response.setZodie(zodie.getNume());
         }
         responseObserver.onNext(response.build());

@@ -13,7 +13,7 @@ public class ListaZodii {
         while(sc.hasNext())
         {
             String zodie=sc.next();
-            String[] vector=zodie.split("|");
+            String[] vector=zodie.split("/");
             Zodie zod=new Zodie(Integer.parseInt(vector[0]),Integer.parseInt(vector[1]),Integer.parseInt(vector[2]),Integer.parseInt(vector[3]),vector[4]);
             zodii.add(zod);
         }
