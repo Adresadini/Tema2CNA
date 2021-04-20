@@ -14,7 +14,6 @@ public class Vara extends varaGrpc.varaImplBase{
     @Override
     public void trimiteZodia(ServiceVara.Data request, StreamObserver<ServiceVara.Zodie> responseObserver)  {
         ListaZodii zod= null;
-        System.out.println("Hello");
         try {
             zod = new ListaZodii(new File("src/main/resources/vara.txt"));
         } catch (FileNotFoundException e) {

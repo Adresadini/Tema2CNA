@@ -44,7 +44,7 @@ public class Main {
         }
 
 
-        gateGrpc.gateStub stub = gateGrpc.newStub(channel);
+        /*gateGrpc.gateStub stub = gateGrpc.newStub(channel);
         stub.trimiteZodia(Gate.Data.newBuilder().setZi(zi).setLuna(luna).setAn(an).build(), new StreamObserver<Gate.Zodie>() {
             @Override
             public void onNext(Gate.Zodie value) {
@@ -60,8 +60,8 @@ public class Main {
             public void onCompleted() {
 
             }
-        });
-        /*if (luna == 12 || luna == 1 || luna == 2) {
+        });*/
+        if (luna == 12 || luna == 1 || luna == 2) {
             iarnaGrpc.iarnaStub stub = iarnaGrpc.newStub(channel);
             stub.trimiteZodia(ServiceIarna.Data.newBuilder().setZi(zi).setLuna(luna).setAn(an).build(), new StreamObserver<ServiceIarna.Zodie>() {
                 @Override
@@ -133,7 +133,7 @@ public class Main {
 
                 }
             });
-        }*/
+        }
         while (isConnected) {
         }
         channel.shutdown();

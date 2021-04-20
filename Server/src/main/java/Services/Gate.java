@@ -9,7 +9,6 @@ import proto.*;
 public class Gate extends gateGrpc.gateImplBase{
     @Override
     public void trimiteZodia(proto.Gate.Data request, StreamObserver<proto.Gate.Zodie> responseObserver) {
-        System.out.println("Hello");
         proto.Gate.Zodie.Builder response=proto.Gate.Zodie.newBuilder();
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8999).usePlaintext().build();
         if(request.getLuna()==12 || request.getLuna()==1 || request.getLuna()==2)
